@@ -1,0 +1,38 @@
+---
+title: "Pourquoi j'ai choisi Next.js pour mon portfolio d'agence"
+description: "Analyse technique des avantages de Next.js App Router combiné avec Tailwind et GSAP pour un rendu premium."
+date: "2024-03-15"
+tags: ["Next.js", "React", "Frontend", "Performance"]
+---
+
+Pour créer ce portfolio hybride "Développeur / Cybersécurité", je voulais un rendu à la hauteur d'une agence digitale premium, mais avec des performances irréprochables et une sécurité maximale.
+
+Mon choix s'est naturellement porté sur la stack **Next.js (App Router) + Tailwind CSS + GSAP**.
+
+## L'architecture App Router
+
+Le nouveau paradigme des Server Components (RSC) change la donne. Dans ce portfolio, toutes les pages sont rendues côté serveur ou générées statiquement. Cela offre deux avantages majeurs :
+
+* **Un chargement initial ultra-rapide** : Le navigateur reçoit du HTML pur, le First Contentful Paint (FCP) est quasi instantané.
+* **Une sécurité renforcée** : Le code serveur n'est jamais exposé au client, ce qui limite considérablement la surface d'attaque.
+
+## Animations avec GSAP et Lenis
+
+Un site d'agence se démarque par la fluidité de ses interactions. J'ai utilisé :
+
+1. **Lenis** : Pour un scroll fluide ("smooth scroll") qui supprime l'effet saccadé des molettes de souris standard.
+2. **GSAP & ScrollTrigger** : Pour orchestrer des animations complexes d'apparition d'éléments (stagger, fade-in, scale).
+
+```typescript
+// Exemple de configuration Lenis très simple
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+})
+```
+
+## MDX pour le Blog
+
+L'intégration d'un blog était une demande clé. Avec l'écosystème Next.js, ajouter MDX (Markdown + JSX) est trivial. Cela me permet d'écrire mes articles en markdown tout en pouvant y insérer des composants React interactifs si besoin.
+
+Cette stack représente pour moi le compromis idéal entre **Design Premium, Développement Rapide et Haute Sécurité**.

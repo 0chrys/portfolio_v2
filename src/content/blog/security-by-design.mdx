@@ -1,0 +1,30 @@
+---
+title: "Security by Design : Protéger son application dès la conception"
+description: "Découvrez pourquoi et comment intégrer la sécurité dès les premières phases de développement de votre application web."
+date: "2024-03-24"
+tags: ["Cybersécurité", "Architecture", "Bonnes pratiques"]
+---
+
+Le "Security by Design" n'est pas qu'un mot à la mode, c'est une nécessité absolue dans le développement web moderne. Trop souvent, la sécurité est envisagée comme une surcouche ajoutée juste avant la mise en production. Cette approche est coûteuse et inefficace.
+
+## Qu'est-ce que le Security by Design ?
+
+C'est l'intégration de la sécurité à chaque étape du cycle de développement logiciel (SDLC). Plutôt que de patcher des vulnérabilités une fois le produit terminé, on conçoit l'architecture pour qu'elle soit robuste par défaut.
+
+### Les principes fondamentaux
+
+1. **Le moindre privilège** : Un utilisateur (ou un service) ne doit avoir que les droits strictement nécessaires à l'accomplissement de sa tâche.
+2. **La défense en profondeur** : Ne jamais compter sur une seule ligne de défense. Si le pare-feu est compromis, l'authentification forte doit prendre le relais.
+3. **La validation stricte des entrées** : Ne jamais faire confiance aux données envoyées par l'utilisateur. Toute entrée doit être validée, assainie et typée.
+
+## Comment l'appliquer au quotidien ?
+
+Si vous développez avec Next.js par exemple :
+
+* Utilisez les en-têtes de sécurité HTTP (Content-Security-Policy, X-Frame-Options) dans votre `next.config.js`.
+* Évitez d'utiliser `dangerouslySetInnerHTML` sauf si c'est absolument nécessaire et que le contenu a été préalablement "sanitizé".
+* Gérez vos secrets d'environnement avec soin et ne les exposez jamais côté client.
+
+> "La sécurité n'est pas un produit, mais un processus." — Bruce Schneier
+
+L'adoption de cette philosophie shift-left prend du temps au début, mais elle garantit des applications beaucoup plus pérennes.

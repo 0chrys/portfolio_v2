@@ -21,21 +21,21 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | CKLabs",
-    default: "CKLabs — Développeur Web & Cybersécurité",
+    template: "%s | Chrys Konan",
+    default: "Chrys Konan — Analyste Cybersécurité & Développeur Fullstack",
   },
   description:
-    "Portfolio de développeur web spécialisé en cybersécurité. Création de sites modernes, performants et sécurisés (Security by Design).",
-  keywords: ["Développeur Web", "Cybersécurité", "Next.js", "React", "Portfolio", "Audit Sécurité"],
-  authors: [{ name: "CKLabs" }],
-  creator: "CKLabs",
+    "Portfolio de Chrys Konan, analyste cybersécurité (SOC, Pentest, GRC) et développeur Fullstack. Expertise hybride et approche Security-by-Design.",
+  keywords: ["Chrys Konan", "Analyste Cybersécurité", "SOC", "Pentest", "GRC", "Développeur Fullstack", "Next.js", "Portfolio"],
+  authors: [{ name: "Chrys Konan" }],
+  creator: "Chrys Konan",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://cklabs.com", // Example URL
-    title: "CKLabs — Développeur Web & Cybersécurité",
-    description: "Portfolio de développeur web spécialisé en cybersécurité.",
-    siteName: "CKLabs",
+    url: "https://chryskonan.com", // Example URL
+    title: "Chrys Konan — Analyste Cybersécurité & Développeur Fullstack",
+    description: "Portfolio de Chrys Konan, expert cybersécurité et développement.",
+    siteName: "Chrys Konan Portfolio",
   },
 };
 

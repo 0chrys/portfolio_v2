@@ -88,7 +88,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="mono-tag text-[8px] mb-2 opacity-60">Source::Mail</h4>
-                  <a href="mailto:lukasbrillouet@gmail.com" className="text-lg font-bold text-foreground hover:text-accent transition-colors block">
+                  <a href="mailto:chryskonan@icloud.com" className="text-lg font-bold text-foreground hover:text-accent transition-colors block">
 chryskonan@icloud.com                  </a>
                 </div>
               </div>

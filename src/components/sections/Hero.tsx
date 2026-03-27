@@ -76,28 +76,63 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted max-w-2xl mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted max-w-2xl leading-relaxed">
               Issu du <span className="text-foreground font-medium">développement freelance</span>, je me consacre aujourd'hui à la <span className="text-accent font-bold">cybersécurité</span>. 
               Je construis des expériences numériques résilientes avec une approche "Secure-by-Design".
             </p>
+          </div>
 
-            <div className="flex flex-wrap items-center gap-6">
-              <div className="hero-btn opacity-0">
-                <Button href="#portfolio" variant="primary" size="lg">
-                  Voir mes projets
-                </Button>
+          {/* Column 2: Terminal & Controls */}
+          <div className="terminal-wrapper opacity-0 hidden lg:flex flex-col gap-6 items-end">
+            <Terminal />
+            
+            {/* Control Panel (Buttons) */}
+            <div className="w-full flex flex-col gap-3">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-accent/5 rounded-t-xl">
+                 <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-accent/80">System Ready</span>
+                 </div>
+                 <span className="text-[9px] font-mono text-slate-500 tracking-tighter uppercase">ID: CK-INT-092</span>
               </div>
-              <div className="hero-btn opacity-0">
-                <Button href="#contact" variant="secondary" size="lg">
-                  Me contacter
-                </Button>
+              
+              <div className="flex flex-row items-center justify-end gap-3">
+                <div className="hero-btn opacity-0">
+                  <Button href="#portfolio" variant="primary" size="lg" className="h-14 px-8 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+                    Projets
+                  </Button>
+                </div>
+                <div className="hero-btn opacity-0">
+                  <Button 
+                    href="/cv-chrys-konan.pdf" 
+                    variant="secondary" 
+                    size="lg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group h-14"
+                  >
+                    <svg className="w-5 h-5 mr-2 group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    CV
+                  </Button>
+                </div>
+                <div className="hero-btn opacity-0">
+                  <Button href="#contact" variant="ghost" size="lg" className="h-14 border-white/10 hover:bg-white/5">
+                    Contact
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Column 2: Terminal Wrapper */}
-          <div className="terminal-wrapper opacity-0 hidden lg:block">
-            <Terminal />
+          
+          {/* Mobile Buttons (Visible only on small screens) */}
+          <div className="lg:hidden flex flex-col gap-4 mt-8 w-full">
+             <div className="flex flex-wrap gap-4">
+                <Button href="#portfolio" variant="primary" size="lg" className="flex-1">Projets</Button>
+                <Button href="/cv-chrys-konan.pdf" variant="secondary" size="lg" className="flex-1" target="_blank" rel="noopener noreferrer">CV</Button>
+             </div>
+             <Button href="#contact" variant="ghost" size="lg" className="w-full">Me contacter</Button>
           </div>
           
         </div>

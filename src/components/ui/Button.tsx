@@ -10,6 +10,8 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   id?: string;
+  target?: string;
+  rel?: string;
 }
 
 export default function Button({
@@ -20,6 +22,8 @@ export default function Button({
   onClick,
   className = "",
   id,
+  target,
+  rel,
 }: ButtonProps) {
   const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
@@ -31,7 +35,7 @@ export default function Button({
       "bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/20 hover:shadow-accent/40",
     secondary:
       "border border-border text-foreground hover:border-accent hover:text-accent bg-surface hover:shadow-md",
-    ghost: "text-muted hover:text-foreground bg-transparent",
+    ghost: "text-muted hover:text-foreground bg-transparent border border-transparent hover:border-border/50 transition-all",
   };
 
   const sizes = {
@@ -49,6 +53,8 @@ export default function Button({
         href={href}
         className={combinedClass}
         id={id}
+        target={target}
+        rel={rel}
       >
         <span className="relative z-10">{children}</span>
         {variant === "primary" && (

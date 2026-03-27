@@ -77,16 +77,30 @@ export default function About() {
               />
             </div>
             
-            <div className="space-y-6 text-lg text-muted mb-12">
+            <div className="space-y-6 text-lg text-muted mb-10">
               <p className="text-bloc opacity-0">
                 Issu du <span className="text-foreground font-medium">développement</span>, mon parcours a naturellement évolué vers la protection des systèmes. 
-                Aujourd'hui, je combine une base technique solide avec une expertise en <span className="text-accent font-bold">SOC L1</span>, <span className="text-accent font-bold">Pentest Junior</span> et <span className="text-accent font-bold">GRC</span>.
+                Aujourd'hui, je combine une base technique solide avec une expertise en <span className="text-accent font-bold">SOC</span>, <span className="text-accent font-bold">Pentester Junior</span> et <span className="text-accent font-bold">GRC</span>.
               </p>
               
               <p className="text-bloc opacity-0">
                 Cette vision hybride me permet de comprendre les vulnérabilités directement à la source (le code) 
                 et d'y remédier efficacement, tout en assurant la conformité et la gouvernance des infrastructures numériques.
               </p>
+            </div>
+
+            <div className="text-bloc opacity-0 mb-12">
+              <a 
+                href="/cv-chrys-konan.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-accent/20 bg-accent/5 text-accent font-bold text-sm hover:bg-accent hover:text-white transition-all group"
+              >
+                <svg className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Télécharger mon CV complet (.pdf)
+              </a>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 skills-container">

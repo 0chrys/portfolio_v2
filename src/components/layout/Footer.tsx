@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-5">
               <li>
                 <p className="text-[10px] uppercase tracking-widest text-muted font-black mb-1">Direct-Mail</p>
-                <a href="mailto:lukasbrillouet@gmail.com" className="text-sm font-bold text-foreground hover:text-accent transition-colors">
+                <a href="mailto:chryskonan@icloud.com" className="text-sm font-bold text-foreground hover:text-accent transition-colors">
 chryskonan@icloud.com                 </a>
               </li>
               <li>
@@ -90,7 +90,7 @@ chryskonan@icloud.com                 </a>
           <div className="flex items-center gap-4">
             <span className="mono-tag text-[8px] opacity-50">V2.4.0_STABLE</span>
             <p className="text-[11px] font-bold text-muted uppercase tracking-wider">
-              &copy; {currentYear} CKLabs. Designed with <span className="text-accent underline decoration-accent/30 decoration-2 underline-offset-4">Security</span> in mind.
+              &copy; {currentYear} Chrys Konan. Designed with <span className="text-accent underline decoration-accent/30 decoration-2 underline-offset-4">Security</span> in mind.
             </p>
           </div>
           <div className="flex gap-8">

@@ -16,7 +16,7 @@ export default function SectionHeading({
   return (
     <div className={`max-w-2xl mb-16 ${className}`}>
       {label && (
-        <span className="inline-block text-accent text-sm font-medium tracking-widest uppercase mb-4">
+        <span className="mono-tag mb-6">
           {label}
         </span>
       )}

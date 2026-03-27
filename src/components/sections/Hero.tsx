@@ -6,6 +6,7 @@ import { fadeInUp, staggerIn } from "@/lib/animations";
 import Button from "@/components/ui/Button";
 
 import { TypeAnimation } from "react-type-animation";
+import Terminal from "@/components/ui/Terminal";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -18,13 +19,12 @@ export default function Hero() {
       const title = containerRef.current.querySelector("h1");
       const desc = containerRef.current.querySelector("p");
       const btns = containerRef.current.querySelectorAll(".hero-btn");
+      const terminal = containerRef.current.querySelector(".terminal-wrapper");
 
       if (title) fadeInUp(title, { delay: 0.1 });
       if (desc) fadeInUp(desc, { delay: 0.3 });
       if (btns.length) staggerIn(btns, { delay: 0.5, stagger: 0.15 });
-
-      // Subtle background floating elements animation
-      // (Added directly via Tailwind + CSS classes below for simplicity)
+      if (terminal) fadeInUp(terminal, { delay: 0.7 });
     },
     { scope: sectionRef }
   );
@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden"
       id="home"
     >
       {/* Background Decor */}
@@ -42,67 +42,66 @@ export default function Hero() {
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] -z-10" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div ref={containerRef} className="max-w-4xl">
-          {/* Label / Tagline */}
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-accent/30 bg-accent/5 backdrop-blur-md mb-8 shadow-sm">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-accent">
-              Secure. Build. Innovate.
-            </span>
+      <div className="container mx-auto px-6 max-w-7xl relative z-10" ref={containerRef}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Column 1: Text Content */}
+          <div className="flex flex-col items-start text-left">
+            {/* Tagline */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-accent/30 bg-accent/5 backdrop-blur-md mb-8 shadow-sm">
+              <span className="text-xs font-bold tracking-[0.3em] uppercase text-accent">
+                Secure. Build. Innovate.
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground mb-8 cursor-default leading-[1.05]">
+              <span className="text-xl md:text-2xl lg:text-3xl block text-accent font-semibold tracking-[0.2em] uppercase mb-4 opacity-80">
+                Hello, je suis
+              </span>
+              <span className="block mb-2">Chrys KONAN</span>
+              <span className="relative inline-block text-accent/90 min-h-[0.9em] text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                <TypeAnimation
+                  sequence={[
+                    "Analyste Cyber",
+                    2000,
+                    "Dev Freelance",
+                    2000,
+                   
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent opacity-0 hover:opacity-100 animate-[scan_3s_ease-in-out_infinite] pointer-events-none" />
+              </span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-muted max-w-2xl mb-12 leading-relaxed">
+              Issu du <span className="text-foreground font-medium">développement freelance</span>, je me consacre aujourd'hui à la <span className="text-accent font-bold">cybersécurité</span>. 
+              Je construis des expériences numériques résilientes avec une approche "Secure-by-Design".
+            </p>
+
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="hero-btn opacity-0">
+                <Button href="#portfolio" variant="primary" size="lg">
+                  Voir mes projets
+                </Button>
+              </div>
+              <div className="hero-btn opacity-0">
+                <Button href="#contact" variant="secondary" size="lg">
+                  Me contacter
+                </Button>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-8 cursor-default leading-[1.1]">
-            Expert Web, Mobile{" "}
-            <span className="gradient-text">&</span>{" "}
-            <br className="hidden md:block" />
-            <span className="relative inline-block hover:scale-105 transition-transform duration-500 text-accent">
-              <TypeAnimation
-                sequence={[
-                  "Cybersécurité",
-                  2000,
-                  "SecDevOps",
-                  2000,
-                  "Pentester",
-                  2000,
-                  "Hacker Éthique",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-              />
-              {/* Scanline effect element */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent opacity-0 hover:opacity-100 animate-[scan_2s_ease-in-out_infinite] pointer-events-none" />
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-2xl text-muted max-w-2xl mb-12 leading-relaxed">
-            Je fusionne le développement de pointe et la sécurité offensive pour créer des 
-            expériences numériques <strong className="text-foreground">résilientes par conception.</strong>
-          </p>
-
-          <div className="flex flex-wrap items-center gap-6 ">
-            <div className="hero-btn opacity-0">
-              <Button href="#portfolio" variant="primary" size="lg">
-                Voir mes projets
-              </Button>
-            </div>
-            <div className="hero-btn opacity-0">
-              <Button href="#contact" variant="secondary" size="lg">
-                Me contacter
-              </Button>
-            </div>
+          {/* Column 2: Terminal Wrapper */}
+          <div className="terminal-wrapper opacity-0 hidden lg:block">
+            <Terminal />
           </div>
+          
         </div>
       </div>
-      
-      {/* Scroll Indicator */}
-      {/* <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
-        <span className="text-xs text-muted font-medium tracking-widest uppercase">Scroll</span>
-        <svg className="w-5 h-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div> */}
     </section>
   );
 }

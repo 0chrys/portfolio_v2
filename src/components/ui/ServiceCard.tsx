@@ -11,34 +11,37 @@ interface ServiceCardProps {
 export default function ServiceCard({ service, index }: ServiceCardProps) {
   return (
     <div
-      className="service-card group relative p-8 rounded-2xl bg-surface border border-border hover:border-accent/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 shadow-sm"
+      className="cyber-card group p-8 h-full flex flex-col"
       data-index={index}
     >
-      {/* Hover gradient overlay */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-      <div className="relative z-10">
-        {/* Icon */}
-        <span className="text-4xl mb-6 block">{service.icon}</span>
+      {/* Grid Pattern Background */}
+      <div className="absolute inset-0 cyber-grid opacity-[0.03] group-hover:opacity-[0.05] transition-opacity" />
+      
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Icon with Scanline */}
+        <div className="relative w-16 h-16 mb-8 flex items-center justify-center rounded-xl bg-accent/5 border border-accent/10 overflow-hidden group-hover:border-accent/30 transition-colors">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.1)_1px,transparent_1px)] bg-[size:100%_4px] animate-scan opacity-0 group-hover:opacity-100" />
+          <span className="text-4xl group-hover:scale-110 transition-transform duration-500">{service.icon}</span>
+        </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+        <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-muted text-sm leading-relaxed mb-6 line-clamp-3">
+        <p className="text-muted text-sm leading-relaxed mb-8 line-clamp-3">
           {service.shortDescription}
         </p>
 
         {/* Features Preview */}
-        <ul className="space-y-2 mb-8">
-          {service.features.slice(0, 2).map((feature, i) => (
+        <ul className="space-y-3 mb-8 flex-1">
+          {service.features.slice(0, 3).map((feature, i) => (
             <li
               key={i}
-              className="flex items-center gap-3 text-sm text-muted/80"
+              className="flex items-center gap-3 text-xs font-medium text-muted/90 uppercase tracking-wide"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent/60 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent/40 shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
               {feature}
             </li>
           ))}
@@ -48,9 +51,9 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         <div className="mt-auto pt-6 border-t border-border/50">
           <Link
             href={`/services/${service.id}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-hover transition-colors group/link"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent hover:text-accent-hover transition-colors group/link"
           >
-            Découvrir l'offre
+            [ OPEN ACCESS ]
             <svg
               className="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
               fill="none"

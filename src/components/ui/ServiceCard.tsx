@@ -47,8 +47,8 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
           ))}
         </ul>
 
-        {/* Read More Link */}
-        <div className="mt-auto pt-6 border-t border-border/50">
+        {/* Read More Link (Commented out for now as requested) */}
+        {/* <div className="mt-auto pt-6 border-t border-border/50">
           <Link
             href={`/services/${service.id}`}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent hover:text-accent-hover transition-colors group/link"
@@ -63,6 +63,12 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
+        </div> */}
+
+        <div className="mt-auto pt-6 border-t border-border/50">
+          <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-muted/50 cursor-not-allowed">
+            [ Access_Restricted ]
+          </div>
         </div>
       </div>
     </div>

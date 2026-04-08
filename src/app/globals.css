@@ -295,3 +295,16 @@ section {
   @apply bg-surface/40 backdrop-blur-xl border border-white/10 shadow-2xl;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes progress {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}

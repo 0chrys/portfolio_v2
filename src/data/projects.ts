@@ -20,6 +20,9 @@ export interface Project {
     features: string[];
     securityOutcome: string;
     metrics: string[];
+    threatLandscape?: string;
+    mitigationStrategy?: string;
+    auditHighlights?: string[];
   };
 }
 
@@ -79,24 +82,6 @@ export const projects: Project[] = [
   },
 
   // --- Cyber Offense & Audit ---
-  {
-    id: "web-security-audit",
-    idCode: "#PRJ-SEC-001",
-    category: "Cyber_Offense",
-    status: "PRODUCTION",
-    tier: "TIER-1",
-    title: "Audit Applicatif OWASP",
-    description: "Identification de vulnérabilités critiques (XSS, SQLi) et recommandations de durcissement.",
-    technologies: ["Burp Suite", "Nmap", "OWASP Top 10", "Code-Review"],
-    featured: true,
-    details: {
-      challenge: "Évaluer la posture de sécurité d'applications web modernes face aux menaces du Top 10 OWASP.",
-      architecture: "Méthodologie d'audit hybride combinant scan automatisé, tests manuels via Proxy (Burp) et revue de code source.",
-      features: ["Scan de vulnérabilités passif/actif", "Exploitation manuelle de SQLi/XSS", "Audit des mécanismes d'Auth", "Rapports de remédiation"],
-      securityOutcome: "Découverte de 3 failles critiques (Injections) et mise en place de politiques de Content Security Policy (CSP).",
-      metrics: ["10+ vulnérabilités trouvées", "3 failles critiques patchées", "Conformité OWASP validée"],
-    }
-  },
   {
     id: "network-pentest-labs",
     idCode: "#PRJ-SEC-002",
@@ -201,23 +186,6 @@ export const projects: Project[] = [
       features: ["Scraping de données sécurisé", "Nettoyage automatique de datasets", "Génération de rapports Excel/PDF", "Monitoring de changements Web"],
       securityOutcome: "Gestion sécurisée des credentials via variables d'environnement et limitation des rate-limits.",
       metrics: ["Gain de temps 80%", "Traitement 10k+ lignes/sec", "Precision 99.9%"],
-    }
-  },
-  {
-    id: "secure-auth-platform-internal",
-    idCode: "#PRJ-DEV-005",
-    category: "Secure_Dev",
-    status: "PRODUCTION",
-    tier: "TIER-1",
-    title: "Auth Micro-Service",
-    description: "Service d'authentification centralisé avec JWT et gestion de sessions durcies.",
-    technologies: ["Node.js", "JWT", "BCrypt", "Session-Handling"],
-    details: {
-      challenge: "Fournir un mécanisme d'authentification fiable et sécurisé réutilisable par plusieurs services internes.",
-      architecture: "Micro-service Node.js stateless gérant le cycle de vie des jetons JWT et le hachage des mots de passe.",
-      features: ["Génération/Validation JWT", "Hachage Bcrypt rounds 12", "Système de Refresh Token", "Rate-limiting anti-brute force"],
-      securityOutcome: "Standardisation de l'auth et protection contre les attaques par rejeu et fixation de session.",
-      metrics: ["Auth latency < 20ms", "Zéro collision JWT", "Rate-limit actif"],
     }
   },
 ];

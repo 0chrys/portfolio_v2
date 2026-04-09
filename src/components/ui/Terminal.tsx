@@ -7,15 +7,15 @@ export default function Terminal() {
   const [showContent, setShowContent] = useState(false);
 
   return (
-    <div className="w-full max-w-lg min-h-[440px] bg-black/60 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden shadow-[0_0_50px_-12px_rgba(99,102,241,0.3)] font-mono text-[13px] group flex flex-col transition-all duration-500 hover:border-accent/40 hover:shadow-[0_0_60px_-12px_rgba(99,102,241,0.4)]">
+    <div className="w-full max-w-lg min-h-[440px] bg-[#020203] dark:bg-black/80 backdrop-blur-2xl rounded-2xl border border-border/50 overflow-hidden shadow-[0_0_50px_-12px_var(--color-accent-dim)] font-mono text-[13px] group flex flex-col transition-all duration-500 hover:border-accent/40 hover:shadow-[0_0_60px_-12px_var(--color-accent-dim)]">
       {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-5 py-4 bg-white/5 border-b border-white/5 shrink-0">
+      <div className="flex items-center gap-2 px-5 py-4 bg-surface/5 dark:bg-white/5 border-b border-border/50 shrink-0">
         <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-[0_0_8px_rgba(255,95,86,0.4)]" />
-          <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_8px_rgba(255,189,46,0.4)]" />
-          <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-[0_0_8px_rgba(39,201,63,0.4)]" />
+          <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-[0_0_8px_rgba(255,95,86,0.3)]" />
+          <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_8px_rgba(255,189,46,0.3)]" />
+          <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-[0_0_8px_rgba(39,201,63,0.3)]" />
         </div>
-        <div className="text-white/20 text-[10px] ml-4 uppercase tracking-[0.3em] font-bold">zsh — session</div>
+        <div className="text-muted text-[10px] ml-4 uppercase tracking-[0.3em] font-bold opacity-40">zsh — session</div>
       </div>
 
       {/* Terminal Body */}

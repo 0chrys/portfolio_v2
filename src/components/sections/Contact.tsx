@@ -27,15 +27,45 @@ export default function Contact() {
     { scope: sectionRef }
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus("submitting");
     
-    // Simulate API call
-    setTimeout(() => {
+    const formData = new FormData(e.currentTarget);
+    const honeypot = formData.get("website");
+    
+    // Si le champ honeypot est rempli, on ignore silencieusement (bot détecté)
+    if (honeypot) {
+      console.log("Bot detected");
       setFormStatus("success");
-      setTimeout(() => setFormStatus("idle"), 3000);
-    }, 1500);
+      return;
+    }
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setFormStatus("idle"), 5000);
+      } else {
+        throw new Error("Erreur lors de l'envoi");
+      }
+    } catch (error) {
+      alert("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer plus tard.");
+      setFormStatus("idle");
+    }
   };
 
   return (
@@ -59,15 +89,15 @@ export default function Contact() {
           <div className="lg:col-span-5 border-b border-border/50 px-6 py-3 flex items-center justify-between bg-accent/5">
             <div className="flex items-center gap-4">
               <div className="flex gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-red-400 opacity-50" />
-                <div className="w-2 h-2 rounded-full bg-yellow-400 opacity-50" />
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-status-error opacity-50" />
+                <div className="w-2 h-2 rounded-full bg-status-warning opacity-50" />
+                <div className="w-2 h-2 rounded-full bg-status-success animate-pulse" />
               </div>
               <span className="font-mono text-[10px] uppercase tracking-widest font-bold text-accent">Secure Connection established</span>
             </div>
             <div className="hidden md:flex items-center gap-2">
               <span className="font-mono text-[10px] uppercase tracking-widest font-bold text-muted">AES-256 Enabled</span>
-              <svg className="w-3 h-3 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-3 h-3 text-status-success" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
               </svg>
             </div>
@@ -100,9 +130,23 @@ chryskonan@icloud.com                  </a>
                   </svg>
                 </div>
                 <div>
-                  <h4 className="mono-tag text-[8px] mb-2 opacity-60">Source::Live</h4>
-                  <a href="https://wa.me/33600000000" className="text-lg font-bold text-foreground hover:text-emerald-400 transition-colors block italic">
-                    Open Chat
+                  <h4 className="mono-tag text-[8px] mb-2 opacity-60">Source::WhatsApp</h4>
+                  <a href="https://wa.me/2250173175924" className="text-lg font-bold text-foreground hover:text-status-success transition-colors block italic" target="_blank" rel="noopener noreferrer">
+                    Lancer un chat
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-6 group/item pt-4 border-t border-border/50">
+                <div className="w-12 h-12 rounded-xl bg-accent/5 border border-accent/10 text-accent flex items-center justify-center shrink-0 group-hover/item:border-accent/40 group-hover/item:bg-accent/10 transition-all duration-300">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="mono-tag text-[8px] mb-2 opacity-60">Source::Phone</h4>
+                  <a href="tel:+2250173175924" className="text-lg font-bold text-foreground hover:text-accent transition-colors block">
+                    +225 01 73 17 59 24
                   </a>
                 </div>
               </div>
@@ -112,6 +156,9 @@ chryskonan@icloud.com                  </a>
           {/* Contact Form */}
           <div className="contact-form opacity-0 lg:col-span-3 p-10">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Bottrap / Honeypot */}
+              <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-muted">Nom complet</label>

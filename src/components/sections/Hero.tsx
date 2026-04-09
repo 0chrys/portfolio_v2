@@ -36,11 +36,11 @@ export default function Hero() {
       id="home"
     >
       {/* Background Decor */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] -z-10 dark:opacity-50 opacity-40" />
-      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-indigo-500/20 rounded-full blur-[120px] -z-10 dark:opacity-50 opacity-40" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] -z-10 dark:opacity-30 opacity-20 animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-cyan-tech/10 rounded-full blur-[120px] -z-10 dark:opacity-20 opacity-15" />
       
       {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] -z-10" />
+      <div className="absolute inset-0 bg-[linear-gradient(var(--accent-dim)_1px,transparent_1px),linear-gradient(90deg,var(--accent-dim)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] -z-10" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10" ref={containerRef}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -88,7 +88,7 @@ export default function Hero() {
             
             {/* Control Panel (Buttons) */}
             <div className="w-full flex flex-col gap-3">
-              <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-accent/5 rounded-t-xl">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-border/50 bg-accent/5 rounded-t-xl">
                  <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="text-[10px] uppercase tracking-widest font-bold text-accent/80">System Ready</span>
@@ -98,7 +98,7 @@ export default function Hero() {
               
               <div className="flex flex-row items-center justify-end gap-3">
                 <div className="hero-btn opacity-0">
-                  <Button href="#portfolio" variant="primary" size="lg" className="h-14 px-8 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+                  <Button href="#portfolio" variant="primary" size="lg" className="h-14 px-8 shadow-[0_0_20px_var(--accent-dim)]">
                     Projets
                   </Button>
                 </div>
@@ -118,7 +118,7 @@ export default function Hero() {
                   </Button>
                 </div>
                 <div className="hero-btn opacity-0">
-                  <Button href="#contact" variant="ghost" size="lg" className="h-14 border-white/10 hover:bg-white/5">
+                  <Button href="#contact" variant="ghost" size="lg" className="h-14">
                     Contact
                   </Button>
                 </div>

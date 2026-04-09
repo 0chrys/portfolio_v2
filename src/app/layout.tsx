@@ -5,6 +5,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Replace default Geist fonts with Inter and JetBrains Mono as per our requirements
 const inter = Inter({
@@ -56,6 +58,8 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <Analytics />
+            <SpeedInsights />
           </SmoothScroll>
         </ThemeProvider>
       </body>

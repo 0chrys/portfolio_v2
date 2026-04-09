@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* System Colors */
   --color-background: var(--bg);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
@@ -8,53 +9,57 @@
   --color-border-hover: var(--border-hover);
   --color-foreground: var(--fg);
   --color-muted: var(--muted);
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
-  --color-accent-dim: rgba(99, 102, 241, 0.1);
+  
+  /* Brand Palette - Electric Cyber */
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-dim: var(--accent-dim);
+  --color-cyan-tech: #06b6d4;
+  
+  /* Semantic Status */
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-status-info: #3b82f6;
+  --color-status-error: #ef4444;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --shadow-sm: var(--shadow-sm);
-  --shadow: var(--shadow);
-  --shadow-md: var(--shadow-md);
-  --shadow-lg: var(--shadow-lg);
-  --shadow-xl: var(--shadow-xl);
-  --shadow-2xl: var(--shadow-2xl);
 }
 
 :root {
-  --bg: #fdfdff;
-  --surface: #ffffff;
-  --surface-hover: #fcfcfd;
-  --border: #e2e8f0;
+  /* Light Mode (Clean-Tech surgical aesthetic) */
+  --bg: #f1f5f9;       /* Slate 100 - Clean industrial base */
+  --surface: #ffffff;  /* Pure white for depth */
+  --surface-hover: #f8fafc;
+  --border: #e2e8f0;   /* Subtle slate borders */
   --border-hover: #cbd5e1;
-  --fg: #0f172a;
-  --muted: #64748b;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.15);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.05);
+  --fg: #0f172a;       /* Slate 950 - Strong contrast */
+  --muted: #475569;    /* Slate 600 - Readable muted text */
+  
+  --accent: #4338ca;   /* Deep Indigo - Professional and readable on white */
+  --accent-hover: #3730a3;
+  --accent-dim: rgba(67, 56, 202, 0.08); /* Finer tint for light mode */
+  
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(15, 23, 42, 0.05); /* Darker border hint for depth */
 }
 
 .dark {
-  --bg: #030303;
-  --surface: #0a0a0a;
-  --surface-hover: #0f0f0f;
-  --border: #1e1e1e;
-  --border-hover: #262626;
-  --fg: #f1f5f9;
-  --muted: #94a3b8;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.8);
-  --glass-bg: rgba(10, 10, 10, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  /* Dark Mode (Deep Cyber-Premium aesthetic) */
+  --bg: #020203;       /* Deeper black for higher contrast */
+  --surface: #0a0a0c;
+  --surface-hover: #121216;
+  --border: #1a1a20;
+  --border-hover: #23232b;
+  --fg: #f8fafc;       /* Slate 50 - Crisp text */
+  --muted: #94a3b8;    /* Slate 400 - Clear secondary text */
+  
+  --accent: #6164ff;   /* Electric Indigo - More vibrant for dark surroundings */
+  --accent-hover: #7c7eff;
+  --accent-dim: rgba(97, 100, 255, 0.12);
+  
+  --glass-bg: rgba(10, 10, 12, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.04);
 }
 
 /* Smooth scroll is handled by Lenis */
@@ -84,7 +89,7 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: rgba(99, 102, 241, 0.3);
+  background-color: var(--color-accent-dim);
   color: currentColor;
 }
 
@@ -113,7 +118,7 @@ section {
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #a78bfa, #6366f1);
+  background: linear-gradient(135deg, var(--color-accent), #818cf8, var(--color-accent));
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -122,8 +127,8 @@ section {
 
 /* Glow effect */
 .glow {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15),
-              0 0 60px rgba(99, 102, 241, 0.05);
+  box-shadow: 0 0 20px var(--color-accent-dim),
+              0 0 60px var(--color-accent-dim);
 }
 
 /* Glass card */
@@ -142,7 +147,7 @@ section {
   left: 0;
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, #6366f1, transparent);
+  background: linear-gradient(90deg, var(--color-accent), transparent);
 }
 
 /* Blog MDX styles */
@@ -280,7 +285,7 @@ section {
 .cyber-card::before {
   content: "";
   @apply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10;
-  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.06), transparent 40%);
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--color-accent-dim), transparent 40%);
 }
 
 .mono-tag {
@@ -288,7 +293,7 @@ section {
 }
 
 .text-glow {
-  text-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+  text-shadow: 0 0 15px var(--accent-dim);
 }
 
 .glass-card {

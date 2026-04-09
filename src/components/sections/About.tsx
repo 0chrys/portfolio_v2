@@ -125,8 +125,8 @@ export default function About() {
 
               {/* Dev Column */}
               <div className="space-y-6">
-                <div className="flex items-center gap-3 text-blue-400 mb-4 text-bloc opacity-0">
-                  <div className="p-2 rounded-lg bg-blue-400/10 border border-blue-400/20">
+                <div className="flex items-center gap-3 text-cyan-tech mb-4 text-bloc opacity-0">
+                  <div className="p-2 rounded-lg bg-cyan-tech/10 border border-cyan-tech/20">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
@@ -135,7 +135,7 @@ export default function About() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {devSkills.map(skill => (
-                    <span key={skill} className="skill-pill opacity-0 px-3 py-1.5 rounded-lg border border-border bg-surface text-xs font-semibold text-foreground hover:border-blue-400/50 transition-colors cursor-default">
+                    <span key={skill} className="skill-pill opacity-0 px-3 py-1.5 rounded-lg border border-border bg-surface text-xs font-semibold text-foreground hover:border-cyan-tech/50 transition-colors cursor-default">
                       {skill}
                     </span>
                   ))}
@@ -145,13 +145,27 @@ export default function About() {
 
             {/* Certification Highlights */}
             <div className="mt-16 pt-8 border-t border-border/50 text-bloc opacity-0">
-              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-muted mb-6">Certifications Clés</h3>
+              <div className="flex items-center justify-between mb-6">
+                 <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-muted">Certifications Clés</h3>
+                 <a 
+                   href="https://www.credly.com/users/sourale-chrys-ivan-konan" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="text-[10px] font-bold text-accent hover:underline uppercase tracking-widest flex items-center gap-1.5"
+                 >
+                   Verify Credly
+                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                   </svg>
+                 </a>
+              </div>
               <div className="flex flex-wrap gap-4">
                 {certifications.slice(0, 3).map((cert: Certification) => (
                   <div key={cert.id} className="flex items-center gap-4 p-3 rounded-xl bg-surface border border-border/50 hover:border-accent/30 transition-all duration-300 group/cert shadow-sm">
-                    <div className="w-10 h-10 rounded-lg bg-accent/5 flex items-center justify-center text-xl grayscale group-hover/cert:grayscale-0 transition-all">
-                      {cert.logo}
-                    </div>
+                    <div 
+                      className="w-10 h-10 rounded-lg bg-accent/5 flex items-center justify-center p-2 grayscale group-hover/cert:grayscale-0 transition-all"
+                      dangerouslySetInnerHTML={{ __html: cert.logo }}
+                    />
                     <div>
                       <p className="text-xs font-bold text-foreground leading-tight">{cert.title}</p>
                       <p className="text-[10px] text-muted uppercase tracking-wider mt-0.5">{cert.issuer}</p>
@@ -171,14 +185,14 @@ export default function About() {
               
               {/* Hexagon Container */}
               <div className="relative w-72 h-72 flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-surface stroke-accent/40 stroke-[0.5] drop-shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+                <svg viewBox="0 0 100 100" className="w-full h-full fill-surface stroke-accent/40 stroke-[0.5] drop-shadow-[0_0_15px_var(--accent-dim)]">
                   <path d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z" />
                 </svg>
                 
                 {/* Internal UI elements */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-48 h-48 rounded-full border border-accent/30 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:100%_4px] animate-[scan_4s_linear_infinite]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(var(--accent-dim)_1px,transparent_1px)] bg-[size:100%_4px] animate-[scan_4s_linear_infinite]" />
                     <span className="text-7xl group-hover:scale-110 transition-transform duration-700 select-none">🛡️</span>
                   </div>
                 </div>
@@ -187,7 +201,7 @@ export default function About() {
                 {[0, 60, 120, 180, 240, 300].map((angle, i) => (
                   <div 
                     key={i}
-                    className="absolute w-2 h-2 bg-accent rounded-full shadow-[0_0_8px_rgba(99,102,241,0.8)]"
+                    className="absolute w-2 h-2 bg-accent rounded-full shadow-[0_0_8px_var(--color-accent)]"
                     style={{
                       transform: `rotate(${angle}deg) translateY(-145px)`,
                       opacity: 0.6 + (i * 0.05)

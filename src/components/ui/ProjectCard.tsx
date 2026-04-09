@@ -9,21 +9,21 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div 
-      className="cyber-card group h-full flex flex-col bg-surface/40 backdrop-blur-md border-white/5 hover:border-accent/20 transition-all duration-500 block relative overflow-hidden"
+      className="cyber-card group h-full flex flex-col bg-surface/40 backdrop-blur-md border-border/50 hover:border-accent/40 transition-all duration-500 block relative overflow-hidden"
       data-index={index}
     >
       {/* Simplified Registry Header */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.03] bg-white/[0.01]">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-border/40 bg-accent/5">
         <div className="flex items-center gap-3">
           <span className="text-[10px] font-mono font-bold text-accent/80 tracking-tight">{project.idCode}</span>
           <span className="w-1 h-1 rounded-full bg-border/30" />
           <span className="text-[9px] font-mono font-bold text-emerald-500/80 tracking-tight">{project.tier}</span>
         </div>
         <span className={`text-[8px] font-black px-2 py-0.5 rounded-full border ${
-          project.status === "PRODUCTION" ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-500" :
-          project.status === "SIMULATION" ? "bg-amber-500/10 border-amber-500/20 text-amber-500" :
-          project.status === "LAB" ? "bg-blue-500/10 border-blue-500/20 text-blue-500" :
-          "bg-purple-500/10 border-purple-500/20 text-purple-500"
+          project.status === "PRODUCTION" ? "bg-status-success/10 border-status-success/20 text-status-success" :
+          project.status === "SIMULATION" ? "bg-status-warning/10 border-status-warning/20 text-status-warning" :
+          project.status === "LAB" ? "bg-status-info/10 border-status-info/20 text-status-info" :
+          "bg-status-error/10 border-status-error/20 text-status-error"
         }`}>
           {project.status}
         </span>
@@ -65,15 +65,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="mt-auto">
           <div className="flex gap-2 mb-4">
              {project.technologies.slice(0, 3).map((tech) => (
-              <span key={tech} className="text-[7px] font-mono text-muted/40 uppercase tracking-widest">{tech}</span>
+              <span key={tech} className="text-[7px] font-mono text-muted uppercase tracking-widest opacity-60">{tech}</span>
              ))}
           </div>
           
-          <div className="flex items-center justify-between pt-4 border-t border-white/[0.03]">
-             <span className="text-[7px] font-black uppercase tracking-widest text-muted/30 group-hover:text-amber-500/50 transition-colors italic">Access_Classified</span>
+          <div className="flex items-center justify-between pt-4 border-t border-border/40">
+             <span className="text-[7px] font-black uppercase tracking-widest text-muted group-hover:text-status-warning transition-colors italic opacity-50">Access_Classified</span>
              <div className="flex items-center gap-1.5 grayscale group-hover:grayscale-0 transition-all">
-                <span className="w-1 h-1 rounded-full bg-amber-500/50 animate-pulse" />
-                <span className="text-[7px] font-black uppercase tracking-widest text-muted/20 group-hover:text-muted/50">PROTECTED</span>
+                <span className="w-1 h-1 rounded-full bg-status-warning animate-pulse" />
+                <span className="text-[7px] font-black uppercase tracking-widest text-muted opacity-40 group-hover:opacity-70 group-hover:text-muted">PROTECTED</span>
              </div>
           </div>
         </div>

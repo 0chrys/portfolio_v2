@@ -165,6 +165,7 @@ chryskonan@icloud.com                  </a>
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                     placeholder="John Doe"
@@ -175,6 +176,7 @@ chryskonan@icloud.com                  </a>
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                     placeholder="john@example.com"
@@ -187,6 +189,7 @@ chryskonan@icloud.com                  </a>
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   required
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                   placeholder="Proposition de mission..."
@@ -197,6 +200,7 @@ chryskonan@icloud.com                  </a>
                 <label htmlFor="message" className="text-sm font-medium text-muted">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all resize-none"

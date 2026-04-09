@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: 'chryskonan@icloud.com',
+      to: 'chrysivan3@gmail.com',
       subject: `[Portfolio] - ${cleanSubject}`,
       replyTo: email,
       html: `
@@ -63,11 +63,13 @@ export async function POST(req: Request) {
     });
 
     if (error) {
+      console.error('Resend Error:', error);
       return NextResponse.json({ error }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, data });
-  } catch (error) {
+  } catch (err) {
+    console.error('Contact API Error:', err);
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 }

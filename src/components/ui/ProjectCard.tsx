@@ -8,9 +8,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <Link 
-      href={`/projects/${project.id}`}
-      className="cyber-card group h-full flex flex-col bg-surface/40 backdrop-blur-md border-white/5 hover:border-accent/20 transition-all duration-500 cursor-pointer block"
+    <div 
+      className="cyber-card group h-full flex flex-col bg-surface/40 backdrop-blur-md border-white/5 hover:border-accent/20 transition-all duration-500 block relative overflow-hidden"
       data-index={index}
     >
       {/* Simplified Registry Header */}
@@ -57,8 +56,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.title}
           </h3>
           <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-            <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg className="w-4 h-4 text-muted/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
           </div>
         </div>
@@ -71,14 +70,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
           
           <div className="flex items-center justify-between pt-4 border-t border-white/[0.03]">
-             <span className="text-[7px] font-black uppercase tracking-widest text-accent/40 group-hover:text-accent transition-colors">Open_Mission_Report</span>
+             <span className="text-[7px] font-black uppercase tracking-widest text-muted/30 group-hover:text-amber-500/50 transition-colors italic">Access_Classified</span>
              <div className="flex items-center gap-1.5 grayscale group-hover:grayscale-0 transition-all">
-                <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[7px] font-black uppercase tracking-widest text-muted/20 group-hover:text-muted/50">SECURED</span>
+                <span className="w-1 h-1 rounded-full bg-amber-500/50 animate-pulse" />
+                <span className="text-[7px] font-black uppercase tracking-widest text-muted/20 group-hover:text-muted/50">PROTECTED</span>
              </div>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

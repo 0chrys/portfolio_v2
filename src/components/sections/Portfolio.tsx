@@ -24,23 +24,35 @@ export default function Portfolio() {
       const cards = containerRef.current.querySelectorAll(".project-card-wrapper");
 
       if (heading) fadeInUp(heading, { trigger: heading });
-      if (filterBar) fadeInUp(filterBar, { trigger: filterBar, delay: 0.1 });
-      if (scrollArea) fadeInUp(scrollArea, { trigger: scrollArea, delay: 0.2 });
+      if (filterBar) fadeInUp(filterBar, { trigger: filterBar, delay: 0.05 });
+      if (scrollArea) fadeInUp(scrollArea, { trigger: scrollArea, delay: 0.1 });
+
+      // Immediate staggered appearance for cards when filtering
+      if (cards.length) {
+        gsap.set(cards, { opacity: 0, y: 15 });
+        gsap.to(cards, {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "power2.out",
+          delay: 0.15
+        });
+      }
 
       // GSAP Focus Effect: Dim others on hover
       cards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
-          cards.forEach((other) => {
-            if (other !== card) {
-              gsap.to(other, { opacity: 0.3, scale: 0.98, duration: 0.4 });
-            }
+          gsap.to(cards, {
+            opacity: (i, target) => target === card ? 1 : 0.3,
+            scale: (i, target) => target === card ? 1 : 0.98,
+            duration: 0.4,
+            overwrite: true
           });
         });
 
         card.addEventListener("mouseleave", () => {
-          cards.forEach((other) => {
-            gsap.to(other, { opacity: 1, scale: 1, duration: 0.4 });
-          });
+          gsap.to(cards, { opacity: 1, scale: 1, duration: 0.4, overwrite: true });
         });
       });
     },
@@ -97,7 +109,7 @@ export default function Portfolio() {
             </svg>
           </div>
 
-          <div className="flex gap-6 overflow-x-auto pb-16 snap-x snap-mandatory no-scrollbar scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12">
+          <div className="flex gap-6 overflow-x-auto pb-16 snap-x snap-proximity no-scrollbar scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12">
             {filteredProjects.map((project, index) => (
               <div 
                 key={project.id} 
